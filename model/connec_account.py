@@ -12,10 +12,12 @@ class Connect:
         self.p = None
         self.pwd = None
         self.count = None
-        self.pseudo_ok = False
-        self.password_ok = False
+        self.pseudo_ok = None
+        self.password_ok = None
+        self.pseudo_password = False
 
-    def connect_user(self):
+    def connect_user(self, pseudo_password):
+        """method for connect after verify """
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
         self.password = getpass()
@@ -24,15 +26,17 @@ class Connect:
         self.p = self.choice.cursor.fetchall()
         self.choice.cursor.execute("SELECT password FROM users;")
         self.pwd = self.choice.cursor.fetchall()
-        a = Verify(self.p, self.pseudo, self.pwd, self.password)
-        a.check_pseudo(self.p, self.pseudo)
-        a.check_password(self.pwd, self.password)
+        a = Verify(self.p, self.pseudo, self.pwd, self.password, self.password, self.password_ok)
+        a.check_pseudo(self.p, self.pseudo, self.pseudo_ok)
+        a.check_password(self.pwd, self.password, self.password_ok)
+        if self.password_ok == True \
+                and self.pseudo_ok == True:
+            self.pseudo_password = True
+            return self.pseudo_password
+        else:
+            self.pseudo_password = False
+            return self.pseudo_password
 
-        #self.password = getpass()
-        #self.choice.cursor.executed("SELECT password FROM users;")
-        #self.pwd = self.choice.cursor.fetchall()
-        #b = Verify(self.pwd, self.password)
-        #b.check_password(self.pwd, self.password)
 
 
 
