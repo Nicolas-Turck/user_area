@@ -1,5 +1,6 @@
 from model.connection import *
 from view.display import *
+from model.connec_account import *
 from model.create_account import *
 """test for verify if connect to bbd is ok """
 test = connection()
@@ -14,5 +15,6 @@ if __name__=='__main__':
             choice = Create()
             choice.create_user()
 
-        """if user_choice == "c":
-            print("og")"""
+        if user_choice == "c":
+            choice= Connect()
+            choice.connect_user()
