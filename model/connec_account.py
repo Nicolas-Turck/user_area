@@ -1,6 +1,7 @@
 from model.connection import *
 import hashlib
 from getpass import *
+from controller.verify import *
 
 class Connect:
     """"""
@@ -14,16 +15,11 @@ class Connect:
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
         self.choice.cursor.execute("SELECT pseudo FROM users;")
-        p = self.choice.cursor.fetchall()
-        #Connect.check_pseudo(p, self.pseudo)
-        """self.password = getpass()
-        self.choice.cursor.execute(SELECT password FROM users;)"""
+        self.p = self.choice.cursor.fetchall()
+        Verify.check_pseudo(self.p, self.pseudo)
 
-    def check_pseudo(self, p, pseudo):
-        if self.pseudo in self.p:
-            print("yes")
-        else:
-            print("no")
+
+
 
 
 
