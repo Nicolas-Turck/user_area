@@ -13,6 +13,14 @@ class Connect:
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
         self.password = getpass()
+        self.choice.cursor.execute("SELECT pseudo, password FROM users;")
+        list = self.choice.cursor.fetchall()
+        self.choice.close_connection()
+        return list
+
+    def check_if_found(self):
+
+
 
 
 
