@@ -7,19 +7,13 @@ test.initialize_connection()
 test.close_connection()
 
 if __name__=='__main__':
-    choice = ""
+    user_choice = ""
     while user_choice != "q":
         user_choice = input ("choice (c) to connect at your account or (w) for create an account:")
 
-        if user_choice == "c":
-            choice = Create()
-            name = input("enter name:")
-            first = input("enter firstname:")
-            pseudo = input("enter pseudo:")
-            email = input("enter your email adress:")
-            age = input("enter your age:")
-            password = input("create your password:")
-            choice.create_user(name, first, pseudo, email, age, password)
-            print("go")
         if user_choice == "w":
-            print("og")
+            choice = Create()
+            choice.create_user()
+
+        """if user_choice == "c":
+            print("og")"""
