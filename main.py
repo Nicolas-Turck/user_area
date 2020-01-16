@@ -16,7 +16,12 @@ if __name__=='__main__':
             choice.create_user()
 
         if user_choice == "c":
-            choice = Connect()
-            choice.connect_user()
+            pseudo_ok=False
+            password_ok=False
+            while pseudo_ok == False and password_ok == False:
+                choice = Connect(pseudo_ok, password_ok)
+                choice.connect_user()
+                if pseudo_ok == True and password_ok == True:
+
 
 
