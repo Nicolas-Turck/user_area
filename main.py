@@ -10,7 +10,6 @@ if __name__=='__main__':
     user_choice = ""
     while user_choice != "q":
         user_choice = input ("choice (c) to connect at your account or (w) for create an account:")
-
         if user_choice == "w":
             choice = Create()
             choice.create_user()
