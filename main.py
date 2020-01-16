@@ -16,6 +16,7 @@ if __name__=='__main__':
             choice.create_user()
 
         if user_choice == "c":
-            choice= Connect()
+            choice = Connect()
             choice.connect_user()
-            choice.check_if_found()
+
+

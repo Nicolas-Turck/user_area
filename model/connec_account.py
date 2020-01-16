@@ -8,17 +8,30 @@ class Connect:
         self.choice = connection()
         self.pseudo = None
         self.password = None
+        self.p = None
 
     def connect_user(self):
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
-        self.password = getpass()
-        self.choice.cursor.execute("SELECT pseudo, password FROM users;")
-        list = self.choice.cursor.fetchall()
-        self.choice.close_connection()
-        return list
+        self.choice.cursor.execute("SELECT pseudo FROM users;")
+        p = self.choice.cursor.fetchall()
+        #Connect.check_pseudo(p, self.pseudo)
+        """self.password = getpass()
+        self.choice.cursor.execute(SELECT password FROM users;)"""
 
-    def check_if_found(self):
+    def check_pseudo(self, p, pseudo):
+        if self.pseudo in self.p:
+            print("yes")
+        else:
+            print("no")
+
+
+
+
+
+
+
+
 
 
 
