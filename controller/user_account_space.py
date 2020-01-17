@@ -3,8 +3,9 @@ from model.delete_account import *
 class Display():
     """class for all display of the program"""
 
-    def __init__(self):
-        pass
+    def __init__(self, pseudo):
+        self.pseudo = pseudo
+
 
     def show_inf(self):
         choice=""
@@ -18,7 +19,7 @@ class Display():
                 print("good bye")
                 sys.exit()
             if choice == "d":
-                user_choice = Delete()
+                user_choice = Delete(self.pseudo)
                 user_choice.del_account()
                 print("delete")
             if choice =="c":

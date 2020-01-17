@@ -1,6 +1,9 @@
 from model.connection import *
+
+
 class Delete():
     """class for user delete this account"""
+
     def __init__(self, pseudo):
         self.user_choice = connection()
         self.pseudo = pseudo

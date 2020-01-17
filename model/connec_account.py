@@ -29,7 +29,7 @@ class Connect:
         a = Verify(self.p, self.pseudo, self.pwd, self.password)
         a.check_pseudo(self.p, self.pseudo,self.pseudo_ok)
         a.check_password(self.pwd, self.password, self.password_ok)
-        a.check_password_pseudo()
+        a.check_password_pseudo(self.pseudo)
 
 
 
