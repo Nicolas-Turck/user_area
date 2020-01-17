@@ -28,7 +28,8 @@ class Connect:
         self.pwd = self.choice.cursor.fetchall()
         a = Verify(self.p, self.pseudo, self.pwd, self.password)
         a.check_pseudo(self.p, self.pseudo, self.pwd, self.password)
-        #a.check_password(self.pwd, self.password)
+
+
 
 
 

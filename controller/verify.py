@@ -11,27 +11,32 @@ class Verify():
     def check_pseudo(self, p, pseudo, pwd, password):
         """method for verify i pseudo entry is in
         bdd in champ pseudo"""
-        #print(self.p)
+
         for row in self.p:
             for i in row:
                 if self.pseudo == i:
                     self.pseudo_ok = True
-                    print(self.pseudo_ok)
-                    Verify.check_password(pwd, password)
-                    #return self.pseudo_ok
-                    print("yes")
+                    #Verify.check_password(self.pwd, self.password, self.pseudo_ok)
+                    return self.pseudo_ok
 
-    def check_password(pwd, password):
-        """method for verify password if password entry is the same of the password corresponding in the database"""
-        print(pwd)
+    def check_password(pwd, password, pseudo_ok):
+        """method for verify password if password entry is the
+        same of the password corresponding in the database"""
         for row in pwd:
             for i in row:
-                if self.password == i:
-                    self.password_ok = True
-                    print(self.password_ok)
-                    return self.pseudo_ok, self.password_ok
-                    #print(pwd)
-                    print("yes")
-                    #else:
-                        #print("no")
+                if password == i:
+                    password_ok = True
+
+    def check_password_pseudo(self):
+
+        if pseudo_ok == True and password_ok == True:
+            ac = True
+            print(password_ok, pseudo_ok)
+            print("yes")
+            return ac
+                #else:
+                #   print("no")
+                #  ac = False
+                # return ac
+
 
