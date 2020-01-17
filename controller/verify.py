@@ -1,5 +1,5 @@
 from model.connec_account import *
-from view.display import *
+from controller.user_account_space import *
 class Verify():
     def __init__(self, p, pseudo, pwd, password):
         self.p = p
@@ -16,7 +16,6 @@ class Verify():
             for i in row:
                 if self.pseudo == i:
                     self.pseudo_ok = True
-                    #Verify.check_password(self.pwd, self.password, self.pseudo_ok, self.password_ok)
 
     def check_password(self, pwd, password, pseudo_ok):
         """method for verify password if password entry is the
@@ -25,17 +24,16 @@ class Verify():
             for i in row:
                 if self.password == i:
                     self.password_ok = True
-                    #Verify.check_password_pseudo(self.pseudo_ok, self.password_ok)
 
     def check_password_pseudo(self, ):
         """method for verify if pseudo is ok and password ok """
-        print(self.password_ok, self.pseudo_ok)
+        #print(self.password_ok, self.pseudo_ok)
         if self.pseudo_ok == True and self.password_ok == True:
-            print("yes")
             space = Display()
             space.show_inf()
         else:
             return
+
 
 
 
