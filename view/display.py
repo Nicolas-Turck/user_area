@@ -4,8 +4,14 @@ class Display():
     def __init__(self):
         pass
 
-    def show_menu(self):
-        print(" welcomme to your account ")
+    def show_inf(self):
+
+            print(" welcomme t \n"
+              " (d) for delete account\n"
+              " (c) for change data\n"
+              " (q) for exit ")
+            return
+
 
 
 

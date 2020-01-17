@@ -33,7 +33,7 @@ class Verify():
         if self.pseudo_ok == True and self.password_ok == True:
             print("yes")
             space = Display()
-            space.show_menu()
+            space.show_inf()
         else:
             return
 

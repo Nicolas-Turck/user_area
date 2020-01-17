@@ -10,6 +10,7 @@ test.close_connection()
 
 if __name__=='__main__':
     user_choice = ""
+    account_choice = ""
 
     while user_choice != "q":
         user_choice = input("choice (c) to connect at your account or (w) for create an account:")
@@ -19,6 +20,8 @@ if __name__=='__main__':
         if user_choice == "c":
             choice = Connect()
             choice.connect_user()
+
+
 
 
 
