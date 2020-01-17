@@ -1,4 +1,5 @@
 import sys
+from model.delete_account import *
 class Display():
     """class for all display of the program"""
 
@@ -17,6 +18,8 @@ class Display():
                 print("good bye")
                 sys.exit()
             if choice == "d":
+                user_choice = Delete()
+                user_choice.del_account()
                 print("delete")
             if choice =="c":
                 print("change data")

@@ -25,11 +25,11 @@ class Verify():
                 if self.password == i:
                     self.password_ok = True
 
-    def check_password_pseudo(self, ):
+    def check_password_pseudo(self, pseudo):
         """method for verify if pseudo is ok and password ok """
         #print(self.password_ok, self.pseudo_ok)
         if self.pseudo_ok == True and self.password_ok == True:
-            space = Display()
+            space = Display(self.pseudo)
             space.show_inf()
         else:
             return
