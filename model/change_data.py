@@ -8,7 +8,6 @@ class Change():
         self.user_choice = connection()
         self.pseudo = pseudo
 
-
     def change_datta(self):
         """"method for delte user account after connect to bdd"""
         column = ""

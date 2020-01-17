@@ -4,7 +4,6 @@ class Delete():
     def __init__(self, pseudo):
         self.user_choice = connection()
         self.pseudo = pseudo
-        pass
 
     def del_account(self):
         """"method for delte user account after connect to bdd"""

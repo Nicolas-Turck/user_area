@@ -9,6 +9,7 @@ class Display():
 
 
     def show_inf(self):
+        """method for got to class of user choice"""
         choice=""
 
         while choice != "q":

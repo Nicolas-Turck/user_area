@@ -12,7 +12,7 @@ class Create:
         self.password = None
 
     def create_user(self):
-        """method for create user account"""
+        """method for create user account after register entry in attributes """
         self.choice.initialize_connection()
         self.name = input("enter name:")
         self.first = input("enter firstname:")
