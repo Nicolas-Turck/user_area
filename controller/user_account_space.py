@@ -1,5 +1,6 @@
 import sys
 from model.delete_account import *
+from model.change_data import *
 class Display():
     """class for all display of the program"""
 
@@ -23,6 +24,8 @@ class Display():
                 user_choice.del_account()
                 print("delete")
             if choice =="c":
+                user_choice = Change(self.pseudo)
+                user_choice.change_datta()
                 print("change data")
 
 
