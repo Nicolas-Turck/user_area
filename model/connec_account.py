@@ -21,14 +21,17 @@ class Connect:
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
         self.password = getpass()
-        self.password = hashlib.sha256(b'').hexdigest()
+        self.password = hashlib.sha256(self.password.encode()).hexdigest()
         self.choice.cursor.execute("SELECT pseudo FROM users;")
         self.p = self.choice.cursor.fetchall()
         self.choice.cursor.execute("SELECT password FROM users;")
         self.pwd = self.choice.cursor.fetchall()
         a = Verify(self.p, self.pseudo, self.pwd, self.password)
-        a.check_pseudo(self.p, self.pseudo)
-        a.check_password(self.pwd, self.password)
+        a.check_pseudo(self.p, self.pseudo,self.pseudo_ok)
+        a.check_password(self.pwd, self.password, self.password_ok)
+        a.check_password_pseudo()
+
+
 
 
 
