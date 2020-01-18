@@ -35,6 +35,7 @@ class Verify():
             space = Display(self.pseudo)
             space.show_inf()
         else:
+
             print("account not found")
             return
 
