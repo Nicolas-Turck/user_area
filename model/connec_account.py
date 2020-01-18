@@ -3,8 +3,10 @@ import hashlib
 from getpass import *
 from controller.verify import *
 from controller.verify import *
+from os import *
 class Connect:
-    """class for connect to user account"""
+    """class for ask pseudo and passwor if user
+    choice connect to user account"""
     def __init__(self):
         self.choice = connection()
         self.pseudo = None
@@ -17,10 +19,13 @@ class Connect:
         self.pseudo_password = False
 
     def connect_user(self):
-        """method for connect after verify """
+        """method for ask pseudo and password and
+         and return of bdd list pseudo and list password after verify
+          in new method if entry is in list pseudo and password """
         self.choice.initialize_connection()
         self.pseudo = input("enter PSEUDO :")
         self.password = getpass()
+        system('clear')
         self.password = hashlib.sha256(self.password.encode()).hexdigest()
         self.choice.cursor.execute("SELECT pseudo FROM users;")
         self.p = self.choice.cursor.fetchall()

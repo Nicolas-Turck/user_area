@@ -1,3 +1,4 @@
+from  os import *
 import sys
 from model.connection import *
 from controller.user_account_space import *
@@ -19,9 +20,12 @@ if __name__=='__main__':
             sys.exit()
         if user_choice == "w":
             choice = Create()
+            system('clear')
             choice.create_user()
+
         if user_choice == "c":
             choice = Connect()
+            system('clear')
             choice.connect_user()
 
 

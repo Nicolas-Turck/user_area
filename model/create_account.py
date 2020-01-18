@@ -1,7 +1,10 @@
 from model.connection import *
+from controller.verify import *
 import hashlib
+from os import *
 class Create:
-    """class for user create an account if not exist"""
+    """class for user create an account
+    with is entry adding in bdd if account doesn't  exist"""
     def __init__(self):
         self.choice = connection()
         self.name = None
@@ -10,9 +13,12 @@ class Create:
         self.email = None
         self.age = None
         self.password = None
+        self.verify = None
+        self.verif = None
 
     def create_user(self):
-        """method for create user account after register entry in attributes """
+        """method for create user account after register entry in attributes
+         and add this attributes in bdd """
         self.choice.initialize_connection()
         self.name = input("enter name:")
         self.first = input("enter firstname:")
@@ -20,8 +26,18 @@ class Create:
         self.email = input("enter your email adress:")
         self.age = input("enter your age:")
         self.password = input("create your password:")
-        self.password = hashlib.sha256(self.password.encode()).hexdigest()
-        self.choice.cursor.execute("INSERT INTO users(name, firstname, pseudo, email, age, password) VALUES "
-                                   "(%s, %s, %s, %s, %s, %s);",(self.name, self.first, self.pseudo, self.email, self.age, self.password))
-        self.choice.connection.commit()
-        self.choice.close_connection()
+        while True:
+            self.choice.cursor.execute("SELECT pseudo  FROM users;")
+            self.verif = self.choice.cursor.fetchall()
+            self.choice.cursor.execute("SELECT email  FROM users;")
+            self.verify = self.choice.cursor.fetchall()
+            print(self.verify)
+            verify = Verify(self.pseudo, self.email, self.verif, self.verify)
+            verify.verify_email(self.email, self.pseudo, self.verify, self.verif)
+            verify.verify_pseudo()
+            self.password = hashlib.sha256(self.password.encode()).hexdigest()
+            self.choice.cursor.execute("INSERT INTO users(name, firstname, pseudo, email, age, password) VALUES "
+                                       "(%s, %s, %s, %s, %s, %s);",(self.name, self.first, self.pseudo, self.email, self.age, self.password))
+            self.choice.connection.commit()
+            self.choice.close_connection()
+            system('clear')
