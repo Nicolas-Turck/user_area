@@ -4,11 +4,9 @@ from model.create_account import *
 """class for test entry of user and go to account if entry is ok
 ok return if entry is not ok"""
 class Verify():
-    def __init__(self, p, pseudo, pwd, password, verif, verify, email):
+    def __init__(self, p, pseudo, pwd, password):
         self.p = p
         self.pseudo = pseudo
-        self.verif = verif
-        self.verify = verify
         self.pwd = pwd
         self.password = password
         self.pseudo_ok = None
@@ -40,24 +38,7 @@ class Verify():
             print("account not found")
             return
 
-    def verify_email(self, verif, verify, email, pseudo):
-        try:
-            for row in self.verify:
-                for i in row:
-                    if self.email == i:
-                        return False
-        except:
-            return True
-                        #Verify.verify_pseudo(pseudo, verif)
 
-    def verify_pseudo(self, verif,  pseudo):
-        try:
-            for row in self.verif:
-                for i in row:
-                    if self.pseudo == i:
-                        return False
-        except:
-            return True
 
 
 

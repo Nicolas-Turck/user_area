@@ -1,5 +1,6 @@
 from model.connection import *
 from controller.verify import *
+from controller.verify_pseudo_email import *
 import hashlib
 from os import *
 class Create:
@@ -32,7 +33,7 @@ class Create:
             self.choice.cursor.execute("SELECT email  FROM users;")
             self.verify = self.choice.cursor.fetchall()
             print(self.verify)
-            verify = Verify(self.pseudo, self.email, self.verif, self.verify)
+            verify = Verify_pseudo_email(self.pseudo, self.email, self.verif, self.verify)
             verify.verify_email(self.email, self.pseudo, self.verify, self.verif)
             verify.verify_pseudo()
             self.password = hashlib.sha256(self.password.encode()).hexdigest()
